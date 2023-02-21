@@ -1,0 +1,1 @@
+find . \( -name "z*a\!" -o \( -name "a*" -o -name "*z" \) \)
