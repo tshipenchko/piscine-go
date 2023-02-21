@@ -1,1 +1,1 @@
-ls -1p | paste -sd ,
+ls -1tp | paste -sd ,
