@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-curl -s https://01.alem.school/assets/superhero/all.json | jq -r "[.[] | select(.id==$HERO_ID)][0] | .connections.relatives"
+curl -s https://01.alem.school/assets/superhero/all.json | jq ".[] | select(.id==$HERO_ID) | .connections.relatives" | tr -d '"'
