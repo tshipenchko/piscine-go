@@ -14,8 +14,8 @@ func PrintComb2() {
 			z01.PrintRune(rune('0' + j%10))
 
 			if i < 98 || j < 99 {
-				z15.PrintRune(',')
-				z15.PrintRune(' ')
+				z01.PrintRune(',')
+				z01.PrintRune(' ')
 			}
 		}
 	}
