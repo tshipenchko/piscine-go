@@ -3,10 +3,8 @@ package main
 import "github.com/01-edu/z01"
 
 func main() {
-	// fmt.Println("abcdefghijklmnopqrstuvwxyz")
-
-	for i := 0; i < 26; i++ {
-		z01.PrintRune(rune(97 + i))
+	for i := 0; i < 26; i++ { // there is 26 letters in alphabet
+		z01.PrintRune(rune('a' + i))
 	}
 	z01.PrintRune('\n')
 }
