@@ -22,7 +22,7 @@ func Atoi(s string) int {
 
 		num := int(s[i] - '0')
 		result += num * base
-		base *= -10
+		base *= 10
 	}
 
 	if s[0] == '-' {
