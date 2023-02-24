@@ -1,4 +1,4 @@
-module piscine-go
+module piscine
 
 go 1.20
 
