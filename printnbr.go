@@ -8,16 +8,16 @@ func PrintNbr(n int) {
 		n = -n
 	}
 
-	lefton := 1
-	for lefton*10 <= n {
-		lefton *= 10
+	div := 1
+	for div <= n/10 {
+		div *= 10
 	}
 
-	for lefton > 0 {
-		digit := rune('0' + n/lefton)
+	for div > 0 {
+		digit := rune('0' + n/div)
 		z01.PrintRune(digit)
-		n %= lefton
-		lefton /= 10
+		n %= div
+		div /= 10
 	}
 
 	if n == 0 {
