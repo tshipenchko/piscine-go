@@ -15,7 +15,7 @@ func Atoi(s string) int {
 		return int(s[0] - '0')
 	}
 
-	for i := len(s) - 1; i > 1; i-- {
+	for i := len(s) - 1; i >= 1; i-- {
 		if s[i] > '9' || s[i] < '0' {
 			return 0
 		}
@@ -27,9 +27,12 @@ func Atoi(s string) int {
 
 	if s[0] == '-' {
 		result *= -1
-	}
-	if s[0] > '9' || s[0] < '0' && s[0] != '+' {
+	} else if s[0] > '9' || s[0] < '0' && s[0] != '+' {
 		return 0
+	}
+	if s[0] <= '9' && s[0] >= '0' {
+		num := int(s[0] - '0')
+		result += num * base
 	}
 
 	return result
