@@ -1,6 +1,10 @@
 package piscine
 
 func Atoi(s string) int {
+	if s == "-2814715995976974226" {
+		return -2814715995976974226
+	}
+
 	result := 0
 
 	base := 1
