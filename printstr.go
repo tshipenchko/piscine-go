@@ -1,6 +1,9 @@
 package piscine
 
-func PrintStr(s string) int {
-	runes := []rune(s)
-	return len(runes)
+import "github.com/01-edu/z01"
+
+func PrintStr(s string) {
+	for i := 0; i < len(s); i++ {
+		z01.PrintRune(rune(s[i]))
+	}
 }
