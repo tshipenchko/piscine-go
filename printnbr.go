@@ -2,12 +2,12 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-func printNbr(n int) {
+func PrintNbr(n int) {
 	if n == -9223372036854775808 { // int64 lol
 		z01.PrintRune('-')
 		z01.PrintRune('9')
 		n = 223372036854775808
-		printNbr(n)
+		PrintNbr(n)
 		return
 	}
 
