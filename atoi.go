@@ -28,7 +28,7 @@ func Atoi(s string) int {
 	if s[0] == '-' {
 		result *= -1
 	}
-	if s[0] > '9' || s[0] < '0' || s[0] == '+' {
+	if s[0] > '9' || s[0] < '0' && s[0] != '+' {
 		return 0
 	}
 
