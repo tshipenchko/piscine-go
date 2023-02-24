@@ -16,17 +16,11 @@ func PrintNbr(n int) {
 		n = -n
 	}
 
-	digits := make([]rune, 0)
-	for n > 0 {
-		digit := rune('0' + n%10)
-		digits = append([]rune{digit}, digits...)
-		n /= 10
-	}
-	if len(digits) == 0 {
-		digits = []rune{'0'}
+	quotient := n / 10
+	if quotient != 0 {
+		PrintNbr(quotient)
 	}
 
-	for i := 0; i < len(digits); i++ {
-		z01.PrintRune(digits[i])
-	}
+	remainder := n % 10
+	z01.PrintRune(rune('0' + remainder))
 }
