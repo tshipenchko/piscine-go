@@ -2,9 +2,12 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-func PrintNbr(n int) {
-	if n == 0 {
-		z01.PrintRune('0')
+func printNbr(n int) {
+	if n == -9223372036854775808 { // int64 lol
+		z01.PrintRune('-')
+		z01.PrintRune('9')
+		n = 223372036854775808
+		printNum(n)
 		return
 	}
 
@@ -13,15 +16,17 @@ func PrintNbr(n int) {
 		n = -n
 	}
 
-	div := 1
-	for div <= n/10 {
-		div *= 10
+	digits := make([]rune, 0)
+	for n > 0 {
+		digit := rune('0' + n%10)
+		digits = append([]rune{digit}, digits...)
+		n /= 10
+	}
+	if len(digits) == 0 {
+		digits = []rune{'0'}
 	}
 
-	for div > 0 {
-		digit := rune('0' + n/div)
-		z01.PrintRune(digit)
-		n %= div
-		div /= 10
+	for i := 0; i < len(digits); i++ {
+		z01.PrintRune(digits[i])
 	}
 }
