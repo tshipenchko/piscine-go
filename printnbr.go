@@ -7,7 +7,7 @@ func printNbr(n int) {
 		z01.PrintRune('-')
 		z01.PrintRune('9')
 		n = 223372036854775808
-		printNum(n)
+		printNbr(n)
 		return
 	}
 
