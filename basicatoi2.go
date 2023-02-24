@@ -1,10 +1,6 @@
 package piscine
 
 func BasicAtoi2(s string) int {
-	if s == "9223372036854775807" {
-		return 9223372036854775807
-	}
-
 	result := 0
 
 	base := 1
@@ -13,11 +9,11 @@ func BasicAtoi2(s string) int {
 	}
 
 	for i := 0; i < len(s); i++ {
-		num := int(s[i]) - '0'
-
-		if num > '9' || num < '0' {
+		if s[i] > '9' || s[i] < '0' {
 			return 0
 		}
+
+		num := int(s[i]) - '0'
 
 		result += num * base
 		base /= 10
