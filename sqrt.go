@@ -1,13 +1,12 @@
 package piscine
 
 func SqrtIterator(nb, n int) int {
-	if n*n == nb {
-		return n
+	for i := 0; i < nb/2; i++ {
+		if i*i == nb {
+			return i
+		}
 	}
-	if n == nb/2 {
-		return 0
-	}
-	return SqrtIterator(nb, n+1)
+	return 0
 }
 
 func Sqrt(nb int) int {
