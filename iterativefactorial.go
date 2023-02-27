@@ -1,7 +1,7 @@
 package piscinego
 
 func IterativeFactorial(nb int) int {
-	if nb < 0 {
+	if nb < 0 || nb > 30 {
 		return 0
 	}
 
