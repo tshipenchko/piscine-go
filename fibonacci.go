@@ -1,10 +1,10 @@
 package piscine
 
 func FibonacciIterator(index, a, b int) int {
-	if index == 0 {
+	if index == 1 {
 		return b
 	}
-	return RecursivePowerIterator(index-1, b, a+b)
+	return FibonacciIterator(index-1, b, a+b)
 }
 
 func Fibonacci(index int) int {
