@@ -18,13 +18,6 @@ func isNotInSlice(a []int, x int) bool {
 	return true
 }
 
-func newAddSlice(slice []int, x int) []int {
-	new_slice := make([]int, len(slice)+1)
-	copy(new_slice, slice)
-	new_slice[len(slice)] = x // Add element to the end
-	return new_slice
-}
-
 func EightQueensIteratorHelper(j, n, i int, a, b, c []int) {
 	if j >= n {
 		return
@@ -33,9 +26,9 @@ func EightQueensIteratorHelper(j, n, i int, a, b, c []int) {
 		EightQueensIterator(
 			n,
 			i+1,
-			newAddSlice(a, j),
-			newAddSlice(b, i+j),
-			newAddSlice(c, i-j),
+			append(a, j),
+			append(b, i+j),
+			append(c, i-j),
 		)
 	}
 	EightQueensIteratorHelper(j+1, n, i, a, b, c)
