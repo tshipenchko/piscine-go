@@ -7,9 +7,9 @@ func PrintSolution(a [8]int) {
 		if position == -420 {
 			break
 		}
-		z01.PrintRune(rune('1' + position)) // From 1, because position is index, but order is required
+		z01.PrintRune(rune(49 + position)) // From 1, because position is index, but order is required
 	}
-	z01.PrintRune('\n')
+	z01.PrintRune(10)
 }
 
 func isNotInSlice(a [8]int, x int) bool {
