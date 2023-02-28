@@ -2,23 +2,39 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-func PrintSolution(a []int) {
+func PrintSolution(a [8]int) {
 	for _, position := range a {
+		if position == -420 {
+			break
+		}
 		z01.PrintRune(rune('1' + position)) // From 1, because position is index, but order is required
 	}
 	z01.PrintRune('\n')
 }
 
-func isNotInSlice(a []int, x int) bool {
+func isNotInSlice(a [8]int, x int) bool {
 	for _, value := range a {
 		if value == x {
 			return false
+		}
+		if value == -420 { // got to the end of slice
+			return true
 		}
 	}
 	return true
 }
 
-func EightQueensIteratorHelper(j, n, i int, a, b, c []int) {
+func MyAppend(a [8]int, x int) [8]int {
+	for i := 0; i < len(a); i++ {
+		if a[i] == -420 {
+			a[i] = x
+			break
+		}
+	}
+	return a
+}
+
+func EightQueensIteratorHelper(j, n, i int, a, b, c [8]int) {
 	if j >= n {
 		return
 	}
@@ -26,15 +42,15 @@ func EightQueensIteratorHelper(j, n, i int, a, b, c []int) {
 		EightQueensIterator(
 			n,
 			i+1,
-			append(a, j),
-			append(b, i+j),
-			append(c, i-j),
+			MyAppend(a, j),
+			MyAppend(b, i+j),
+			MyAppend(c, i-j),
 		)
 	}
 	EightQueensIteratorHelper(j+1, n, i, a, b, c)
 }
 
-func EightQueensIterator(n, i int, a, b, c []int) {
+func EightQueensIterator(n, i int, a, b, c [8]int) {
 	if i < n {
 		EightQueensIteratorHelper(0, n, i, a, b, c)
 	} else {
@@ -47,8 +63,8 @@ func EightQueens() {
 	EightQueensIterator(
 		8,
 		0,
-		make([]int, 0, 8),
-		make([]int, 0, 8),
-		make([]int, 0, 8),
+		[8]int{-420, -420, -420, -420, -420, -420, -420, -420}, // -420 is special value that determines end of alice
+		[8]int{-420, -420, -420, -420, -420, -420, -420, -420},
+		[8]int{-420, -420, -420, -420, -420, -420, -420, -420},
 	)
 }
