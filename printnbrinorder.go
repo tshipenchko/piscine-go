@@ -17,6 +17,10 @@ func PrintNbrInOrder(n int) {
 		return
 	}
 
+	if n == 0 {
+		z01.PrintRune('0')
+	}
+
 	digits := make([]int, 0, 10)
 	for n > 0 {
 		digits = append(digits, n%10)
