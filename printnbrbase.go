@@ -6,12 +6,6 @@ func PrintNbrBase(nbr int, base string) {
 	result := ""
 	int_base := len(base)
 
-	if len(base) > 1000 {
-		z01.PrintRune('N')
-		z01.PrintRune('V')
-		return
-	}
-
 	for i := 0; i < int_base; i++ {
 		for j := i + 1; j < int_base; j++ {
 			if base[i] == base[j] {
@@ -20,6 +14,11 @@ func PrintNbrBase(nbr int, base string) {
 				return
 			}
 		}
+	}
+
+	if nbr == 0 {
+		z01.PrintRune(rune(base[0]))
+		return
 	}
 
 	sign := ""
