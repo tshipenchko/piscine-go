@@ -1,0 +1,4 @@
+package piscine
+
+func DoNothing() {
+}
