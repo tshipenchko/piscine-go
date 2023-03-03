@@ -28,6 +28,9 @@ func main() {
 	}
 
 	// Main logic
+	if flag_insert != "" {
+		src += flag_insert
+	}
 	if flag_help || src == "" {
 		fmt.Print(
 			"--insert\n" +
@@ -38,9 +41,6 @@ func main() {
 				"	 This flag will behave like a boolean, if it is called it will order the argument.\n",
 		)
 		return
-	}
-	if flag_insert != "" {
-		src += flag_insert
 	}
 	if flag_order {
 		src = string(BubbleSort([]rune(src)))
