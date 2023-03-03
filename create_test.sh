@@ -12,9 +12,15 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/01-edu/z01"
+
+	"piscine"
 )
 
 func main() {
 	fmt.Println()
+	piscine.DoNothing()
+	z01.PrintRune('\n')
 }
 EOT
