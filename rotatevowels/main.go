@@ -4,7 +4,7 @@ import "os"
 
 func main() {
 	args := os.Args[1:]
-	src := join(args)
+	src := Join(args)
 
 	PrintString(mirrorVowelsInString(src))
 	PrintString("\n")
@@ -14,7 +14,7 @@ func mirrorVowelsInString(s string) string {
 	vowelPositions := make([]int, 0, len(s))
 
 	for i, r := range s {
-		if isVowel(r) {
+		if IsVowel(r) {
 			vowelPositions = append(vowelPositions, i)
 		}
 	}

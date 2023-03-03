@@ -32,7 +32,7 @@ func PrintString(s string) {
 	}
 }
 
-func isVowel(c rune) bool {
+func IsVowel(c rune) bool {
 	switch ToLower(c) {
 	case 'a', 'e', 'i', 'o', 'u':
 		return true
@@ -40,7 +40,7 @@ func isVowel(c rune) bool {
 	return false
 }
 
-func join(ss []string) string {
+func Join(ss []string) string {
 	result := ""
 
 	for i, str := range ss {
