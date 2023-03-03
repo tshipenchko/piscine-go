@@ -42,13 +42,6 @@ func mirrorVowelsInString(s string) string {
 	runes := []rune(s)
 
 	for i, j := 0, len(vowelPositions)-1; i < j; i, j = i+1, j-1 {
-		if IsUpper(runes[vowelPositions[i]]) {
-			runes[vowelPositions[i]] = ToUpper(runes[vowelPositions[i]])
-			runes[vowelPositions[j]] = ToUpper(runes[vowelPositions[j]])
-		} else {
-			runes[vowelPositions[i]] = ToLower(runes[vowelPositions[i]])
-			runes[vowelPositions[j]] = ToLower(runes[vowelPositions[j]])
-		}
 		runes[vowelPositions[i]], runes[vowelPositions[j]] = runes[vowelPositions[j]], runes[vowelPositions[i]]
 	}
 
