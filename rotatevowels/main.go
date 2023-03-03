@@ -1,33 +1,17 @@
 package main
 
-import (
-	"os"
-
-	"github.com/01-edu/z01"
-)
+import "os"
 
 func main() {
 	args := os.Args[1:]
 	src := join(args)
 
-	hasVovel := false
-	for _, c := range src {
-		if isVowel(c) {
-			hasVovel = true
-		}
-	}
-
-	if hasVovel {
-		PrintString(mirrorVowelsInString(src))
-	} else {
-		PrintString(src)
-	}
-
-	z01.PrintRune('\n')
+	PrintString(mirrorVowelsInString(src))
+	PrintString("\n")
 }
 
 func mirrorVowelsInString(s string) string {
-	vowelPositions := []int{}
+	vowelPositions := make([]int, 0, len(s))
 
 	for i, r := range s {
 		if isVowel(r) {
@@ -46,31 +30,4 @@ func mirrorVowelsInString(s string) string {
 	}
 
 	return string(runes)
-}
-
-func PrintString(s string) {
-	for _, c := range s {
-		z01.PrintRune(rune(c))
-	}
-}
-
-func isVowel(c rune) bool {
-	switch ToLower(c) {
-	case 'a', 'e', 'i', 'o', 'u':
-		return true
-	}
-	return false
-}
-
-func join(ss []string) string {
-	result := ""
-
-	for i, str := range ss {
-		result += str
-		if i+1 != len(ss) {
-			result += " "
-		}
-	}
-
-	return result
 }
