@@ -62,7 +62,7 @@ func PrintString(s string) {
 }
 
 func isVowel(c rune) bool {
-	switch c {
+	switch ToLower(c) {
 	case 'a', 'e', 'i', 'o', 'u':
 		return true
 	}
