@@ -31,11 +31,11 @@ func main() {
 	if flag_help || src == "" {
 		fmt.Print(
 			"--insert\n" +
-				"-i\n" +
-				"This flag inserts the string into the string passed as argument.\n" +
+				"  -i\n" +
+				"         This flag inserts the string into the string passed as argument.\n" +
 				"--order\n" +
-				"-o\n" +
-				"This flag will behave like a boolean, if it is called it will order the argument.\n",
+				"  -o\n" +
+				"         This flag will behave like a boolean, if it is called it will order the argument.\n",
 		)
 		return
 	}
