@@ -11,14 +11,18 @@ func SplitWhiteSpaces(s string) []string {
 
 	var out []string
 
-	j := 0
-	for i, char := range s {
-		if _IsSeparator(char) {
-			out = append(out, s[j:i])
-			j = i + 1
-		} else if i == len(s)-1 {
-			out = append(out, s[j:])
+	var tmp []rune
+	for _, char := range s {
+		if !_IsSeparator(char) {
+			tmp = append(tmp, char)
+		} else if len(tmp) != 0 {
+			out = append(out, string(tmp))
+			tmp = tmp[:0]
 		}
+	}
+
+	if len(tmp) != 0 {
+		out = append(out, string(tmp))
 	}
 
 	return out
