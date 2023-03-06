@@ -19,8 +19,8 @@ import (
 )
 
 func main() {
-	fmt.Println()
 	piscine.DoNothing()
+	fmt.Print("=== testing ===")
 	z01.PrintRune('\n')
 }
 EOT
