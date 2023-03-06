@@ -14,7 +14,7 @@ func main() {
 		for _, filename := range args {
 			file, err := os.Open(filename)
 			if err != nil {
-				PrintString("ERROR: open ", filename, ": No such file or directory\n")
+				PrintString("ERROR: open ", filename, ": no such file or directory\n")
 				os.Exit(1)
 			}
 			io.Copy(os.Stdout, file)
