@@ -21,7 +21,9 @@ func main() {
 			PrintString("open ", filename, ": no such file or directory\n")
 			hasMissingFiles = true
 			continue
-		} else if i != 0 {
+		}
+
+		if i != 0 {
 			PrintString("\n")
 		}
 
