@@ -29,7 +29,7 @@ func main() {
 		if len(filenames) != 1 {
 			PrintHeader(filename)
 		}
-
+		count = Min(count, stat.Size())
 		content := make([]byte, count)
 		file.ReadAt(content, stat.Size()-count)
 		PrintString(string(content))
@@ -67,4 +67,11 @@ func BasicAtoi(s string) int {
 	}
 
 	return result
+}
+
+func Min(a, b int64) int64 {
+	if b < a {
+		return b
+	}
+	return a
 }
