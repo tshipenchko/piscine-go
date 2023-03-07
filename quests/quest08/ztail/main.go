@@ -29,9 +29,9 @@ func main() {
 		if len(filenames) != 1 {
 			PrintHeader(filename)
 		}
-		count = Min(count, stat.Size())
-		content := make([]byte, count)
-		file.ReadAt(content, stat.Size()-count)
+		current_count := Min(count, stat.Size())
+		content := make([]byte, current_count)
+		file.ReadAt(content, stat.Size()-current_count)
 		PrintString(string(content))
 
 		file.Close()
