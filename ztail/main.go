@@ -1,9 +1,8 @@
 package main
 
 import (
+	"fmt"
 	"os"
-
-	"github.com/01-edu/z01"
 )
 
 func main() {
@@ -45,9 +44,7 @@ func main() {
 
 func PrintString(strings ...string) {
 	for _, s := range strings {
-		for _, char := range s {
-			z01.PrintRune(char)
-		}
+		fmt.Printf("%s", s)
 	}
 }
 
