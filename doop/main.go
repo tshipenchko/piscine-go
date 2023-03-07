@@ -20,15 +20,17 @@ func main() {
 	out := 0
 
 	if operator == "+" {
-		if (out < a) != (b < 0) {
+		out = a + b
+
+		if !((out > a) == (b > 0)) { // So ugly...
 			return
 		}
-		out = a + b
 	} else if operator == "-" {
+		out = a - b
+
 		if (out < a) != (b > 0) {
 			return
 		}
-		out = a - b
 	} else if operator == "/" {
 		if b == 0 {
 			PrintString("No division by 0\n")
@@ -37,10 +39,11 @@ func main() {
 
 		out = a / b
 	} else if operator == "*" {
+		out = a * b
+
 		if a != 0 && (out/a != b) {
 			return
 		}
-		out = a * b
 	} else if operator == "%" {
 		if b == 0 {
 			PrintString("No modulo by 0\n")
