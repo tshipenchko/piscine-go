@@ -12,7 +12,7 @@ func ShoppingSummaryCounter(str string) map[string]int {
 
 func split(s string) []string {
 	if len(s) == 0 {
-		return []string{""}
+		return []string{"", ""}
 	}
 
 	out := []string{}
@@ -20,7 +20,7 @@ func split(s string) []string {
 	j := 0
 	for i, e := range s {
 		if e == ' ' || i == len(s)-1 {
-			out = append(out, s[j:i])
+			out = append(out, s[j+1:i])
 			j = i
 		}
 	}
