@@ -1,14 +1,14 @@
 package piscine
 
 func Compact(ptr *[]string) int {
-	out := make([]string, 0, len(*ptr))
-
+	count := 0
 	for _, e := range *ptr {
 		if e != "" {
-			out = append(out, e)
+			(*ptr)[count] = e
+			count++
 		}
 	}
 
-	*ptr = out
-	return len(out)
+	*ptr = (*ptr)[:count]
+	return count
 }
