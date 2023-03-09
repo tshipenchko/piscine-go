@@ -21,5 +21,9 @@ func split(s string) []string {
 		}
 	}
 
+	if j != len(s)-1 {
+		out = append(out, s[j:len(s)-1])
+	}
+
 	return out
 }
