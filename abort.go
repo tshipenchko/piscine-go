@@ -1,7 +1,7 @@
 package piscine
 
 func Abort(a, b, c, d, e int) int {
-	return BubbleSort([]int{a, b, c, d, e})[3]
+	return BubbleSort([]int{a, b, c, d, e})[2]
 }
 
 func BubbleSort(array []int) []int {
