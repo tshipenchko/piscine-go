@@ -15,19 +15,18 @@ func split(s string) []string {
 		return []string{"", ""}
 	}
 
-	out := []string{}
+	out := make([]string, 0, len(s))
 
-	j := 0
-	for i, e := range s {
-		if e == ' ' || i == len(s)-1 {
-			out = append(out, s[j+1:i])
-			j = i
+	t := ""
+	for _, e := range s {
+		if e == ' ' {
+			out = append(out, t)
+			t = ""
+		} else {
+			t += string(e)
 		}
 	}
-
-	if j != len(s)-1 {
-		out = append(out, s[j:len(s)-1])
-	}
+	out = append(out, t)
 
 	return out
 }
