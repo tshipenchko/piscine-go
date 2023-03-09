@@ -18,6 +18,3 @@ func DealAPackOfCards(deck []int) {
 		fmt.Printf("\n")
 	}
 }
-
-func DisplayCards(player int, cards []int) {
-}
