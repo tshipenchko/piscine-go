@@ -15,8 +15,6 @@ func DescendComb() {
 			}
 		}
 	}
-
-	z01.PrintRune('\n')
 }
 
 func PrintNumbers(numbers ...int) {
