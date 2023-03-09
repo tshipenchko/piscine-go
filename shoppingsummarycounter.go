@@ -11,6 +11,10 @@ func ShoppingSummaryCounter(str string) map[string]int {
 }
 
 func split(s string) []string {
+	if len(s) == 0 {
+		return []string{""}
+	}
+
 	out := []string{}
 
 	j := 0
