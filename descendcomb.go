@@ -3,22 +3,19 @@ package piscine
 import "github.com/01-edu/z01"
 
 func DescendComb() {
-	for a := 9; a >= 0; a-- {
-		for b := 9; b >= 1; b-- {
-			for c := 9; c >= 0; c-- {
-				for d := 8; d >= 0; d-- {
-					PrintNumbers(a, b)
-					PrintNumbers()
-					PrintNumbers(c, d)
+	for i := 99; i >= 1; i-- {
+		for j := i - 1; j >= 0; j-- {
+			PrintNumbers(i/10, i%10)
+			PrintNumbers()
+			PrintNumbers(j/10, j%10)
 
-					if a != 0 || b != 1 || c != 0 || d != 0 {
-						z01.PrintRune(',')
-						z01.PrintRune(' ')
-					}
-				}
+			if i != 1 || j != 0 { // Last numbers: 01 00
+				z01.PrintRune(',')
+				PrintNumbers()
 			}
 		}
 	}
+
 	z01.PrintRune('\n')
 }
 
