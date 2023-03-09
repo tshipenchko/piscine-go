@@ -7,9 +7,9 @@ func Unmatch(a []int) int {
 		counts[e]++
 	}
 
-	for k, v := range counts {
-		if v%2 == 1 {
-			return k
+	for _, e := range a {
+		if counts[e]%2 == 1 {
+			return e
 		}
 	}
 
