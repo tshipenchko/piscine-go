@@ -4,13 +4,13 @@ type food struct {
 	preptime int
 }
 
-func FoodDeliveryTime(order string) int {
-	menu := map[string]food{
-		"burger":  {15},
-		"chips":   {10},
-		"nuggets": {12},
-	}
+var menu = map[string]food{
+	"burger":  {15},
+	"chips":   {10},
+	"nuggets": {12},
+}
 
+func FoodDeliveryTime(order string) int {
 	value, ok := menu[order]
 
 	if ok {
