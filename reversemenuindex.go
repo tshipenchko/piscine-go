@@ -9,4 +9,3 @@ func ReverseMenuIndex(menu []string) []string {
 
 	return out
 }
-
