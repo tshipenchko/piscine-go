@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"os"
-	"fmt"
 
 	"github.com/01-edu/z01"
 )
