@@ -3,6 +3,7 @@ package main
 import (
 	"io"
 	"os"
+	"fmt"
 
 	"github.com/01-edu/z01"
 )
@@ -20,6 +21,7 @@ func main() {
 			io.Copy(os.Stdout, file)
 		}
 	} else {
+		fmt.Println("sadds")
 		io.Copy(os.Stdout, os.Stdin)
 	}
 }
