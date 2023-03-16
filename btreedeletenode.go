@@ -1,48 +1,29 @@
 package piscine
 
-import "fmt"
-
 func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
-	notNode := BTreeDeleteNodeHelper2(root, node)
-	if notNode == nil {
+	if root == nil {
 		return nil
 	}
-	fmt.Println("sd", notNode.Data)
 
-	out := &TreeNode{Data: notNode.Data}
-	BTreeDeleteNodeHelper(root, node, root, out)
-
-	root.Data = out.Data
-	root.Left = out.Left
-	root.Right = out.Right
-	return out
-}
-
-func BTreeDeleteNodeHelper(root, node, node2, out *TreeNode) {
-	if root == nil {
-		return
+	if node.Data < root.Data {
+		root.Left = BTreeDeleteNode(root.Left, node)
+	} else if node.Data > root.Data {
+		root.Right = BTreeDeleteNode(root.Right, node)
+	} else { // node.Data == root.Data
+		if root.Left != nil && root.Right != nil {
+			min := BTreeMin(root.Right)
+			root.Data = min.Data
+			root.Right = BTreeDeleteNode(root.Right, min)
+		} else {
+			if root.Left == nil && root.Right == nil {
+				root = nil // Just delete
+			} else if root.Right != nil {
+				root = root.Right
+			} else { // root.Left != nil
+				root = root.Left
+			}
+		}
 	}
 
-	if root != node || root != node2 {
-		BTreeInsertData(out, root.Data)
-	}
-
-	BTreeDeleteNodeHelper(root.Left, node, node2, out)
-	BTreeDeleteNodeHelper(root.Right, node, node2, out)
-}
-
-func BTreeDeleteNodeHelper2(root, node *TreeNode) *TreeNode {
-	if root != node {
-		return root
-	}
-	left := BTreeDeleteNodeHelper2(root.Left, node)
-	if left != nil {
-		return left
-	}
-	right := BTreeDeleteNodeHelper2(root.Right, node)
-	if right != nil {
-		return right
-	}
-
-	return nil
+	return root
 }
