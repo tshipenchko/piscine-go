@@ -1,5 +1,7 @@
 package piscine
 
+// QUEST 02
+
 import (
 	"github.com/01-edu/z01"
 )
