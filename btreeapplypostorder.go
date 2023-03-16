@@ -1,13 +1,11 @@
 package piscine
 
 func BTreeApplyPostorder(root *TreeNode, f func(...interface{}) (int, error)) {
-	if root.Left != nil {
-		BTreeApplyInorder(root.Left, f)
+	if root == nil {
+		return
 	}
 
-	if root.Right != nil {
-		BTreeApplyInorder(root.Right, f)
-	}
-
+	BTreeApplyInorder(root.Left, f)
+	BTreeApplyInorder(root.Right, f)
 	f(root.Data)
 }
