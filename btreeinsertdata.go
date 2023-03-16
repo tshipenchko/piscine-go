@@ -2,22 +2,15 @@ package piscine
 
 func BTreeInsertData(root *TreeNode, data string) *TreeNode {
 	if root == nil {
-		root = &TreeNode{Data: data, Parent: root}
-		return root
+		return &TreeNode{Data: data}
 	}
 
-	if root.Data <= data { // Node is less than value. So write it right
-		if root.Right != nil {
-			BTreeInsertData(root.Right, data)
-		}
-
-		root.Right = &TreeNode{Data: data, Parent: root}
-	} else { // root.Data < data
-		if root.Left != nil {
-			BTreeInsertData(root.Left, data)
-		}
-
-		root.Left = &TreeNode{Data: data, Parent: root}
+	if data < root.Data {
+		root.Left = BTreeInsertData(root.Left, data)
+		root.Left.Parent = root
+	} else {
+		root.Right = BTreeInsertData(root.Right, data)
+		root.Right.Parent = root
 	}
 
 	return root
