@@ -25,5 +25,13 @@ func LoafOfBread(str string) string {
 		i++
 	}
 
-	return out + "\n"
+	last_a := 0
+	for i := len(out) - 1; i > -1; i-- {
+		if rune(out[i]) != ' ' {
+			last_a = i
+			break
+		}
+	}
+
+	return out[:last_a+1] + "\n"
 }
