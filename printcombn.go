@@ -2,11 +2,11 @@ package piscine
 
 // QUEST 02
 
-import (
-	"github.com/01-edu/z01"
-)
+import "github.com/01-edu/z01"
 
 func PrintCombN(n int) {
+	// Brutforce...
+	// There is a better way using dynamic programming, but ...
 	isValid := func(n int) bool {
 		for n != 0 {
 			if n >= 10 && n%10 <= (n/10)%10 { // current and next not equals
