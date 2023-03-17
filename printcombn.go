@@ -32,14 +32,10 @@ func PrintCombN(n int) {
 		base *= 10
 	}
 
-	maxLenght := 1
-	for i := 1; i < n; i++ {
-		maxLenght *= 10
-	}
-
-	for i := maxLenght / 10; i < last; i++ {
+	maxLength := base / 10
+	for i := maxLength / 10; i < last; i++ {
 		if isValid(i) {
-			if i <= maxLenght && maxLenght != 1 {
+			if i <= maxLength && maxLength != 1 {
 				z01.PrintRune('0')
 			}
 
