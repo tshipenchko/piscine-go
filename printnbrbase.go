@@ -9,14 +9,15 @@ func PrintNbrBase(nbr int, base string) {
 	result := ""
 	int_base := len(base)
 
-	for i := 0; i < int_base; i++ {
-		for j := i + 1; j < int_base; j++ {
-			if base[i] == base[j] {
-				z01.PrintRune('N')
-				z01.PrintRune('V')
-				return
-			}
+	mapper := make(map[rune]bool)
+	for _, c := range base {
+		_, ok := mapper[c]
+		if ok {
+			z01.PrintRune('N')
+			z01.PrintRune('V')
+			return
 		}
+		mapper[c] = true
 	}
 
 	if nbr == 0 {
