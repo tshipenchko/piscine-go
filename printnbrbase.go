@@ -12,7 +12,7 @@ func PrintNbrBase(nbr int, base string) {
 	mapper := make(map[rune]bool)
 	for _, c := range base {
 		_, ok := mapper[c]
-		if ok {
+		if ok || len(mapper) > 256 {
 			z01.PrintRune('N')
 			z01.PrintRune('V')
 			return
