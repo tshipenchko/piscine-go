@@ -33,5 +33,9 @@ func LoafOfBread(str string) string {
 		}
 	}
 
+	if len(out) < last_a+1 {
+		return "\n"
+	}
+
 	return out[:last_a+1] + "\n"
 }
