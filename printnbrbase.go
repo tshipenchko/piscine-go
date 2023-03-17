@@ -9,6 +9,12 @@ func PrintNbrBase(nbr int, base string) {
 	result := ""
 	int_base := len(base)
 
+	if int_base < 2 {
+		z01.PrintRune('N')
+		z01.PrintRune('V')
+		return
+	}
+
 	mapper := make(map[rune]bool)
 	for _, c := range base {
 		_, ok := mapper[c]
