@@ -1,50 +1,64 @@
 // QUEST 5
-// TODO: Fix infinite loop error
+// TODO: Fix using ItoaBase
 
 package piscine
 
 import "github.com/01-edu/z01"
 
 func PrintNbrBase(nbr int, base string) {
-	result := ""
-	int_base := len(base)
+	for _, char := range ItoaBase(nbr, base) + "\n" {
+		z01.PrintRune(rune(char))
+	}
+}
 
-	if int_base < 2 {
-		z01.PrintRune('N')
-		z01.PrintRune('V')
-		return
+func ItoaBase(nbr int, base string) string {
+	if len(base) < 2 {
+		return "NV"
 	}
 
-	mapper := make(map[rune]bool)
+	x := map[rune]bool{}
 	for _, c := range base {
-		_, ok := mapper[c]
-		if c == '-' || c == '+' || ok {
-			z01.PrintRune('N')
-			z01.PrintRune('V')
-			return
+		if x[c] || c == '-' || c == '+' {
+			return "NV"
 		}
-		mapper[c] = true
+		x[c] = true
 	}
 
-	if nbr == 0 {
-		z01.PrintRune(rune(base[0]))
-		return
-	}
-
+	out := ""
 	sign := ""
-	if nbr < 0 {
+	plus1 := false
+
+	if nbr == -9223372036854775808 {
+		plus1 = true
+		sign = "-"
+		nbr = 9223372036854775807
+	} else if nbr < 0 {
 		sign = "-"
 		nbr *= -1
 	}
 
 	for nbr > 0 {
-		result = string(base[nbr%int_base]) + result
-		nbr /= int_base
+		i := nbr % len(base)
+		if plus1 {
+			i++
+			if i >= len(base) {
+				i--
+				plus1 = true
+			} else {
+				plus1 = false
+			}
+		}
+		out = string(base[i:i+1]) + out
+		nbr /= len(base)
 	}
 
-	result = sign + result
-
-	for _, char := range result {
-		z01.PrintRune(rune(char))
+	if plus1 { // overflow
+		ov := base[1:2]
+		for range out {
+			ov += base[0:1]
+		}
+		return sign + ov
 	}
+
+	return sign + out
 }
