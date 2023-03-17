@@ -1,9 +1,0 @@
-[submodule "groupwork/quad"]
-	path = groupwork/quad
-	url = git@git.01.alem.school:ytursyna/quad.git
-[submodule "groupwork/sudoku"]
-	path = groupwork/sudoku
-	url = git@git.01.alem.school:ytursyna/sudoku.git
-[submodule "groupwork/quadchecker"]
-	path = groupwork/quadchecker
-	url = git@git.01.alem.school:ytursyna/quadchecker.git
