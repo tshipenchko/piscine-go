@@ -4,7 +4,7 @@ func ActiveBits(n int) int {
 	c := 0
 
 	for n > 0 {
-		c += c % 2
+		c += n % 2
 		n /= 2
 	}
 
