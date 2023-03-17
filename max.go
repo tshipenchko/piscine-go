@@ -7,7 +7,7 @@ func Max(a []int) int {
 	max := a[0]
 	for _, e := range a {
 		if e > max {
-			e = max
+			max = e
 		}
 	}
 	return max
